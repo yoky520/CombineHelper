@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lot Combine Helper</title>
+  <style>
+   body {background-color: greenyellow;}
+   button {background-color: skyblue;}
+   input {background-color: pink;}
+    table, th, td {
+      color: red;
+      border:2px solid black;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    @media print {
+      @page {
+        /* 纵向 */
+        /*size: portrait;*/
+  
+        /* 横向 */
+        size: landscape;
+  
+        /* 边距 上右下左 */
+        margin: 0;
+      }
+      body {
+        margin: 2cm;
+      }
+    }
+  </style>
+  <script type="text/javascript" src="data.js"></script>
+</head>
+
+<body>
+  <div>
+    <button type="submit" onclick="about()">关于</button>
+    <h2>Lot数量分析</h2>
+    <!--startprint-->
+    <table style="width: 100%" id="tb">
+      <tr>
+        <th>Tray信息</th>
+        <th>Lot数量</th>
+        <th>Lot扎数</th>
+        <th>尾扎数量</th>
+        <th>尾扎盘数</th>
+        <th>尾盘数量</th>
+        <th>尾盘行数</th>
+        <th>尾行数量</th>
+      </tr>
+      <tr>
+        <td id="r0">0</td>
+        <td id="r7">0</td>
+        <td id="r1">0</td>
+        <td id="r2">0</td>
+        <td id="r3">0</td>
+        <td id="r4">0</td>
+        <td id="r5">0</td>
+        <td id="r6">0</td>
+      </tr>
+    </table>
+    <!--endprint-->
+    <datalist id="xdata"></datalist>
+    <datalist id="ydata"></datalist>
+    <datalist id="zdata"></datalist>
+    <table id="tray">
+      <tr>
+        <th colspan="10">
+          满扎&Tray信息
+        </th>
+      </tr>
+      <tr>
+        <td nograp="0">
+          满扎数量
+        </td>
+        <td nograp="0">
+          <input style="width:90%" type="number" id="ipx" list="xdata"></p>
+        </td>
+        <td nograp="0">
+          一盘数量
+        </td>
+        <td nograp="0">
+          <input style="width:90%" type="number" id="ipy" list="ydata"></p>
+        </td>
+        <td nograp="0">
+          一行数量
+        </td>
+        <td nograp="0">
+        <input style="width:90%" type="number" id="ipz" list="zdata"></p>
+        </td>
+      </tr>
+    </table>
+    <p>LOT数量<input type="number" id="ipq"><button type="submit" onclick="lotQuery('q')">分析</button></p>
+    <p>合并总数<input type="number" id="ipc"><button type="submit" onclick="lotQuery('c')">分析</button></p>
+    <p>WIP数量<input type="number" id="ipa"><button type="submit" onclick="lotQuery('a')">分析</button></p>
+    <p>拆批数量<input type="number" id="ipb"><button type="submit" onclick="lotQuery('b')">分析</button></p>
+    <p><button type="submit" id="sb" onclick="getData()">提交</button> <button type="submit" onclick="wprint()">列印</button></p>
+  </div>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
